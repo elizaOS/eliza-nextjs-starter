@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ChatMessages } from "@/components/chat-messages";
 import { TextareaWithActions } from "@/components/textarea-with-actions";
 import { ChatSessions } from "@/components/chat-sessions";
-import { Button } from "@/components/button";
+import { Button, styles } from "@/components/button";
 import { USER_NAME, CHAT_SOURCE } from "@/constants";
 import SocketIOManager, {
   ControlMessageData,
@@ -647,15 +647,14 @@ export const Chat = ({ sessionId: propSessionId }: ChatProps = {}) => {
             <div className="flex items-center gap-2">
               <Button
                 onClick={() => createNewSession()}
-                color="blue"
+                color={"blue" as keyof typeof styles.colors }
               >
                 New Chat
               </Button>
               {sessionData && (
                 <Button
                   onClick={() => setShowSessionSwitcher(!showSessionSwitcher)}
-                  plain
-                  color="blue"
+                  plain        
                 >
                   {showSessionSwitcher ? "Hide Sessions" : "Switch Chat"}
                 </Button>
